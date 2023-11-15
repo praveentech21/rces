@@ -18,7 +18,7 @@ $font = './roboto.ttf'; // Provide the correct path to your font file
 $rollno=($_POST['rollno']);
 include "../connect.php";
 
-$result=mysqli_query($conn, "SELECT * FROM `members` WHERE `mobile`='$rollno'");
+$result=mysqli_query($conn, "SELECT * FROM `participated` WHERE `mobile`='$rollno'");
 $row=mysqli_fetch_assoc($result);
 
 if(mysqli_num_rows($result) == 0)
@@ -29,16 +29,16 @@ else
   {
 	//echo "<h2 style='color:#AA0055;font-family:Arial;'>CODE MASTER 2018 - LEVEL 1 CERTIFICATE</h2>";  
   $sname=ucwords($row['name']);
-  $subject=$row['department'];
+  // $subject=$row['department'];
   //$name=$sname." - ".$rollno;
 
 //writing name and roll number
 $text = $sname;
-imagettftext($im, 30, 0, 550, 780, $black, $font, $text);
+imagettftext($im, 30, 0, 345, 640, $black, $font, $text);
 
 //writing rool number
-$text = $subject; 
-imagettftext($im, 30, 0, 320, 875, $black, $font, $text);
+// $text = $subject; 
+// imagettftext($im, 30, 0, 320, 875, $black, $font, $text);
 
 $myfile = "tmp/".$rollno.".png";
 
