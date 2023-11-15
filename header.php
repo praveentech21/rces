@@ -26,7 +26,7 @@
 
           <li class="menu-item ">
 
-            <a href="participated.php" class="menu-link">
+            <a href="presentor.php" class="menu-link">
 
               <i class="menu-icon tf-icons bx bx-dock-top"></i>
 
@@ -37,11 +37,11 @@
           </li>
 
           <li class="menu-item ">
-          <a href="register.php" class="menu-link">
+          <a href="presontorregistration.php" class="menu-link">
 
             <i class="menu-icon tf-icons bx bx-box"></i>
 
-            <div data-i18n="Analytics">New Registration</div>
+            <div data-i18n="Analytics">Presentor Registration</div>
 
           </a>
 
