@@ -18,7 +18,7 @@
 
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
 
-              <div data-i18n="Analytics">participated</div>
+              <div data-i18n="Analytics">Participated</div>
 
             </a>
 
@@ -35,7 +35,7 @@
             </a>
 
           </li>
-          
+
           <li class="menu-item ">
           <a href="register.php" class="menu-link">
 

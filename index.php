@@ -1,11 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['supid']))
-  header('location: login.php');
+if (!isset($_SESSION['supid'])) header("location: login.php");
 
 include 'connect.php';
 
-$participants = mysqli_query($conn, 'SELECT * FROM `members` ');
+$participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapation` ='participat'");
 
 ?>
 
@@ -58,7 +57,7 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
 
       <!-- Bordered Table -->
       <div class="card">
-        <h5 class="card-header">Mecap Certificate Generation</h5>
+        <h5 class="card-header">Certificate for participation</h5>
         <div class="card-body">
           <div class="table-responsive text-nowrap">
             <table class="table table-bordered" id="registrationTable">
@@ -66,7 +65,7 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
                 <tr>
                   <th>NAME</th>
                   <th>DEPARTMENT</th>
-                  <th>Type</th>
+                  <th>Certificate</th>
                   <th>WhatsApp</th>
                   <th>Mail</th>
                 </tr>
@@ -76,7 +75,7 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
                   <tr>
                     <td><strong><?php echo strtoupper($row['name']) ?></strong></td>
                     <td><?php echo $row['department'] ?></td>
-                    <td><?php echo strtoupper($row['particapation']) ?></td>
+                    <td><button type="button" class="btn rounded-pill btn-primary get-certificate" data-pid="<?php echo $row['mobile']; ?>" >Certificate</button></td>
                     <td><button type="button" class="btn btn-success whats-app" data-name="<?php echo $row['name'] ?>" data-pid="<?php echo $row['mobile']; ?>" ?>Whats App</button></td>
                     <td><button type="button" class="btn btn-danger email" data-name="<?php echo $row['name'] ?>" data-pid="<?php echo $row['email']; ?>" ?>Mail</button></td>
                   </tr>
@@ -87,8 +86,7 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
         </div>
       </div>
       <!--/ Bordered Table -->
-
-
+      
     </div>
   </div>
   <!-- Content Ends Here Shiva -->
@@ -102,6 +100,41 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
   <script>
     $(document).ready(function() {
       // Add a click event listener to the buttons with the class "conform-payment"
+      $(".get-certificate").click(function() {
+        // Get the user ID from the data attribute
+        var pid = $(this).data("pid");
+
+        // Send an AJAX request to update the database
+        $.ajax({
+          type: "POST",
+          url: "certificate/participate.php", // Replace with the URL of your PHP script
+          data: {
+            rollno: pid,
+          }, // Send the user ID to the server
+          success: function(response) {
+            // Handle the server response if needed
+            console.log("Server Response:", response);
+
+            var link = document.createElement("a");
+
+            // Set the href attribute to the file URL
+            link.href = "http://saipraveen.free.nf/srkrmecap/certificate/tmp/" + pid + ".png";
+
+            // Set the download attribute to specify the filename
+            link.download = pid + ".png";
+
+            // Trigger a click event on the anchor element
+            link.click();
+
+            window.open("http://saipraveen.free.nf/srkrmecap/certificate/tmp/" + pid + ".png" , "_blank");
+
+          },
+          error: function() {
+            // Handle errors if the AJAX request fails
+            console.error("Error in Generating Certificate.");
+          }
+        });
+      });
       $(".whats-app").click(function() {
         // Get the user ID from the data attribute
         var phoneNumber = $(this).data("pid");
@@ -168,6 +201,8 @@ $participants = mysqli_query($conn, 'SELECT * FROM `members` ');
       });
     });
   </script>
+
+
 
 </body>
 
