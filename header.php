@@ -37,28 +37,50 @@
           </li>
 
           <li class="menu-item ">
-          <a href="presontorregistration.php" class="menu-link">
+            <a href="presontorregistration.php" class="menu-link">
 
-            <i class="menu-icon tf-icons bx bx-box"></i>
+              <i class="menu-icon tf-icons bx bx-box"></i>
 
-            <div data-i18n="Analytics">Presentor Registration</div>
-
-          </a>
-
-          </li>
-
-          <li class="menu-item ">
-
-            <a href="update_member_details.php" class="menu-link">
-
-              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-
-              <div data-i18n="Analytics">Update Details</div>
+              <div data-i18n="Analytics">Presentor Registration</div>
 
             </a>
 
           </li>
 
+          <li class="menu-item ">
+
+            <a href="update_presontor_details.php" class="menu-link">
+
+              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+
+              <div data-i18n="Analytics">Update Presentor Details</div>
+
+            </a>
+
+          </li>
+
+          <li class="menu-item ">
+            <a href="participatedregister.php" class="menu-link">
+
+              <i class="menu-icon tf-icons bx bx-box"></i>
+
+              <div data-i18n="Analytics">Participant Registration</div>
+
+            </a>
+
+          </li>
+
+          <li class="menu-item ">
+
+            <a href="update_participted_details.php" class="menu-link">
+
+              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+
+              <div data-i18n="Analytics">Update participant Details</div>
+
+            </a>
+
+          </li>
 
           <li class="menu-item ">
 
