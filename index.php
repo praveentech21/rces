@@ -4,7 +4,7 @@ if (!isset($_SESSION['supid'])) header("location: login.php");
 
 include 'connect.php';
 
-$participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapation` ='participat'");
+$participants = mysqli_query($conn, "SELECT * FROM `participated`");
 
 ?>
 
@@ -15,12 +15,12 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Mecap Certificate Generation</title>
+  <title>RCES Participated Certificate</title>
 
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="Bhavani/img/cup.png" />
+  <link rel="icon" type="image/x-icon" href="Bhavani/img/favicon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,20 +64,16 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
               <thead>
                 <tr>
                   <th>NAME</th>
-                  <th>DEPARTMENT</th>
                   <th>Certificate</th>
                   <th>WhatsApp</th>
-                  <th>Mail</th>
                 </tr>
               </thead>
               <tbody>
                 <?php while ($row = mysqli_fetch_array($participants)) { ?>
                   <tr>
                     <td><strong><?php echo strtoupper($row['name']) ?></strong></td>
-                    <td><?php echo $row['department'] ?></td>
                     <td><button type="button" class="btn rounded-pill btn-primary get-certificate" data-pid="<?php echo $row['mobile']; ?>" >Certificate</button></td>
                     <td><button type="button" class="btn btn-success whats-app" data-name="<?php echo $row['name'] ?>" data-pid="<?php echo $row['mobile']; ?>" ?>Whats App</button></td>
-                    <td><button type="button" class="btn btn-danger email" data-name="<?php echo $row['name'] ?>" data-pid="<?php echo $row['email']; ?>" ?>Mail</button></td>
                   </tr>
                 <?php } ?>
               </tbody>
@@ -118,7 +114,7 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
             var link = document.createElement("a");
 
             // Set the href attribute to the file URL
-            link.href = "http://saipraveen.free.nf/srkrmecap/certificate/tmp/" + pid + ".png";
+            link.href = "http://localhost/rces/certificate/tmp/" + pid + ".png";
 
             // Set the download attribute to specify the filename
             link.download = pid + ".png";
@@ -126,7 +122,7 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
             // Trigger a click event on the anchor element
             link.click();
 
-            window.open("http://saipraveen.free.nf/srkrmecap/certificate/tmp/" + pid + ".png" , "_blank");
+            window.open("http://localhost/rces/certificate/tmp/" + pid + ".png" , "_blank");
 
           },
           error: function() {
@@ -140,7 +136,7 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
         var phoneNumber = $(this).data("pid");
         var name = $(this).data("name");
 
-        var message = "Dear " + name + ",\nThank You for being a part of SRKR MECAP 2023\n ";
+        var message = "Dear " + name + ",\nThank You for being a part of  Reflections on Contemporary English Studies\n ";
 
         // Encode the message for use in a URL
         var encodedMessage = encodeURIComponent(message);
@@ -150,24 +146,6 @@ $participants = mysqli_query($conn, "SELECT * FROM `members` WHERE `particapatio
 
         // Open WhatsApp with the pre-filled message
         window.open(whatsappURL, "_blank");
-      });
-      $(".email").click(function() {
-        // Get the user's email from the data attribute
-        var email = $(this).data("pid");
-        var name = $(this).data("name");
-        name = name.toUpperCase();
-
-        var subject = "SRKR MECAP 2023";
-        var message = "Dear " + name + ",\nThank You for being a part of SRKR Mecap 2023\n";
-
-        // Encode the message for use in a URL
-        var encodedMessage = encodeURIComponent(message);
-
-        // Construct the mailto URL
-        var mailtoURL = "mailto:" + email + "?subject=" + subject + "&body=" + encodedMessage ;
-
-        // Open the default email client with the pre-filled message
-        window.location.href = mailtoURL;
       });
 
     });

@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
 
 $im = imagecreatefrompng("participated.png");
 // if there's an error, stop processing the page:
