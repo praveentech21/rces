@@ -18,7 +18,7 @@
 
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
 
-              <div data-i18n="Analytics">Home</div>
+              <div data-i18n="Analytics">participated</div>
 
             </a>
 
@@ -30,71 +30,34 @@
 
               <i class="menu-icon tf-icons bx bx-dock-top"></i>
 
-              <div data-i18n="Analytics">participated</div>
+              <div data-i18n="Analytics">Presented</div>
 
             </a>
+
+          </li>
+          
+          <li class="menu-item ">
+          <a href="register.php" class="menu-link">
+
+            <i class="menu-icon tf-icons bx bx-box"></i>
+
+            <div data-i18n="Analytics">New Registration</div>
+
+          </a>
 
           </li>
 
           <li class="menu-item ">
 
-            <a href="oralpresented.php" class="menu-link">
+            <a href="update_member_details.php" class="menu-link">
 
-              <i class="menu-icon tf-icons bx bx-file"></i>
+              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
 
-              <div data-i18n="Analytics">Oral Presentation</div>
-
-            </a>
-
-          </li>
-
-          <li class="menu-item ">
-
-            <a href="invitedtalk.php" class="menu-link">
-
-              <i class="menu-icon tf-icons bx bx-layout"></i>
-
-              <div data-i18n="Analytics">Invited Talks</div>
+              <div data-i18n="Analytics">Update Details</div>
 
             </a>
 
           </li>
-
-          <li class="menu-item ">
-
-            <a href="chaired.php" class="menu-link">
-
-              <i class="menu-icon tf-icons bx bx-collection"></i>
-
-              <div data-i18n="Analytics">Chaired</div>
-
-            </a>
-
-          </li>
-
-          <li class="menu-item ">
-
-<a href="register.php" class="menu-link">
-
-  <i class="menu-icon tf-icons bx bx-box"></i>
-
-  <div data-i18n="Analytics">New Registration</div>
-
-</a>
-
-</li>
-
-<li class="menu-item ">
-
-<a href="update_member_details.php" class="menu-link">
-
-  <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-
-  <div data-i18n="Analytics">Update Details</div>
-
-</a>
-
-</li>
 
 
           <li class="menu-item ">
