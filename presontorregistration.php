@@ -6,12 +6,10 @@ include "connect.php";
 
 if(isset($_POST['addnewstudent'])){
     $name = $_POST['sname'];
-    $dept = $_POST['dept'];
     $title = $_POST['title'];
-    $email = $_POST['email'];
+    $title1 = $_POST['title1'];
     $mobile = $_POST['mobile'];
-    $batch = $_POST['batch'];
-    $sql = "INSERT INTO `members`(`name`, `department`, `title`, `mobile`, `email`, `particapation`) VALUES ('$name','$dept','$title','$mobile','$email','$batch')";
+    $sql = "INSERT INTO `presented`(`name`,`title`,`title1`,`mobile`) VALUES ('$name','$title','$title1','$mobile')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo "<script>alert('Data Inserted Successfully')</script>";
@@ -89,33 +87,23 @@ if(isset($_POST['addnewstudent'])){
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="dept">Department</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <input type="text" required autocomplete="off" class="form-control" id="dept" name="dept" placeholder="Department belongs to " />
-                  </div>
-                  <!-- <div class="form-text">For Juniours use their dept and remaning are last digits of mobile number must be length 10</div> -->
-                  <div id="regno-error" class="error"></div>
-                </div>
-              </div>
-              <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="title">Title</label>
                 <div class="col-sm-10">
                   <div class="input-group input-group-merge">
-                    <input type="text" required autocomplete="off" class="form-control" id="title" name="title" placeholder="Topic title " />
+                    <input type="text" required autocomplete="off" class="form-control" id="title" name="title" placeholder="Topic title first 100 char" />
                   </div>
                   <!-- <div class="form-text">For Juniours use their dept and remaning are last digits of mobile number must be length 10</div> -->
                   <div id="regno-error" class="error"></div>
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="email">Email</label>
+                <label class="col-sm-2 col-form-label" for="title">Title1</label>
                 <div class="col-sm-10">
                   <div class="input-group input-group-merge">
-                    <input type="email" name="email" id="email" autocomplete="off" class="form-control" placeholder="Participent Email" aria-label="john.doe" aria-describedby="basic-default-email2" required />
+                    <input type="text" required autocomplete="off" class="form-control" id="title1" name="title1" placeholder="Topic title remaning" />
                   </div>
-                  <div id="email-error" class="error"></div>
-                  <!-- <div class="form-text">You can use letters, numbers & periods</div> -->
+                  <!-- <div class="form-text">For Juniours use their dept and remaning are last digits of mobile number must be length 10</div> -->
+                  <div id="regno-error" class="error"></div>
                 </div>
               </div>
               <div class="row mb-3">
@@ -123,22 +111,6 @@ if(isset($_POST['addnewstudent'])){
                 <div class="col-sm-10">
                   <input type="text" id="mobile" autocomplete="off" name="mobile" class="form-control phone-mask" placeholder="905 272 7402" aria-label="905 272 7402" aria-describedby="basic-default-phone" />
                   <div id="mobile-error" class="error"></div>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="batch">Participation</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <select class="form-select" id="batch" name="batch" aria-label="Default select example">
-                      <option selected value="">Select type of Participation</option>
-                      <option value="chaired">CHAIRED</option>
-                      <option value="participat">PARTICIPAT</option>
-                      <option value="oralpresen">ORALPRESEN</option>
-                      <option value="invitedtal">INVITEDTAL</option>
-                    </select>
-                    <div id="batch-error" class="error"></div>
-                  </div>
                 </div>
               </div>
 

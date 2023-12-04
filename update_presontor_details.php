@@ -5,7 +5,7 @@ if (!isset($_SESSION['supid']))
 
 include 'connect.php';
 
-$studentdetails = mysqli_query($conn, 'SELECT * FROM `members`');
+$studentdetails = mysqli_query($conn, 'SELECT * FROM `presented`');
 
 ?>
 
@@ -71,8 +71,6 @@ $studentdetails = mysqli_query($conn, 'SELECT * FROM `members`');
                             <thead>
                                 <tr>
                                     <th>NAME</th>
-                                    <th>DEPARTMENT</th>
-                                    <th>Participation</th>
                                     <th>Title</th>
                                     <th>Mobile</th>
                                     <th>Email</th>

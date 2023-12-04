@@ -40,14 +40,14 @@ imagettftext($im, 30, 0, 345, 640, $black, $font, $sname);
 imagettftext($im, 24, 0, 430, 770, $black, $font, $title);
 imagettftext($im, 24, 0, 450, 820, $black, $font, $title1);
 
-$myfile = "tmp/".$rollno.".png";
+$myfile = "tmpp/".$rollno.".png";
 
 // output the image as a png
 
 imagepng($im, $myfile);
 ?>
 <script>
-  window.open("tmp/<?php echo $rollno; ?>.png");
+  window.open("tmpp/<?php echo $rollno; ?>.png");
 </script>
 <?php
 imagedestroy($im);

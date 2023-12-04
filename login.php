@@ -7,7 +7,7 @@ if(!empty($_SESSION['supid'])){
 }
 if(isset($_POST['submit'])){
   $pin=$_POST['pin'];
-  if($pin=="mecapsrkr#csd"){
+  if($pin=="rces#csd"){
     $_SESSION['supid']=1;
     header("location: index.php");
   }

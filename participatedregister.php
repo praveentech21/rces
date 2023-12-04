@@ -6,17 +6,13 @@ include "connect.php";
 
 if(isset($_POST['addnewstudent'])){
     $name = $_POST['sname'];
-    $dept = $_POST['dept'];
-    $title = $_POST['title'];
-    $email = $_POST['email'];
     $mobile = $_POST['mobile'];
-    $batch = $_POST['batch'];
-    $sql = "INSERT INTO `members`(`name`, `department`, `title`, `mobile`, `email`, `particapation`) VALUES ('$name','$dept','$title','$mobile','$email','$batch')";
+    $sql = "INSERT INTO `participated`(`name`,`mobile`) VALUES ('$name','$mobile')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo "<script>alert('Data Inserted Successfully')</script>";
     }
-    else{
+    else{ 
         echo "<script>alert('Data Not Inserted')</script>";
     }
 }
@@ -67,7 +63,7 @@ if(isset($_POST['addnewstudent'])){
 
   <!-- Content Starts Here Shiva-->
   <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">MECAP SRKR</span> REGISTRATIONS</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">RCES SRKR</span> REGISTRATIONS</h4>
 
     <div class="row">
 
@@ -89,36 +85,6 @@ if(isset($_POST['addnewstudent'])){
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="dept">Department</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <input type="text" required autocomplete="off" class="form-control" id="dept" name="dept" placeholder="Department belongs to " />
-                  </div>
-                  <!-- <div class="form-text">For Juniours use their dept and remaning are last digits of mobile number must be length 10</div> -->
-                  <div id="regno-error" class="error"></div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="title">Title</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <input type="text" required autocomplete="off" class="form-control" id="title" name="title" placeholder="Topic title " />
-                  </div>
-                  <!-- <div class="form-text">For Juniours use their dept and remaning are last digits of mobile number must be length 10</div> -->
-                  <div id="regno-error" class="error"></div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="email">Email</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <input type="email" name="email" id="email" autocomplete="off" class="form-control" placeholder="Participent Email" aria-label="john.doe" aria-describedby="basic-default-email2" required />
-                  </div>
-                  <div id="email-error" class="error"></div>
-                  <!-- <div class="form-text">You can use letters, numbers & periods</div> -->
-                </div>
-              </div>
-              <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="mobile">Mobile No</label>
                 <div class="col-sm-10">
                   <input type="text" id="mobile" autocomplete="off" name="mobile" class="form-control phone-mask" placeholder="905 272 7402" aria-label="905 272 7402" aria-describedby="basic-default-phone" />
@@ -126,21 +92,6 @@ if(isset($_POST['addnewstudent'])){
                 </div>
               </div>
 
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="batch">Participation</label>
-                <div class="col-sm-10">
-                  <div class="input-group input-group-merge">
-                    <select class="form-select" id="batch" name="batch" aria-label="Default select example">
-                      <option selected value="">Select type of Participation</option>
-                      <option value="chaired">CHAIRED</option>
-                      <option value="participat">PARTICIPAT</option>
-                      <option value="oralpresen">ORALPRESEN</option>
-                      <option value="invitedtal">INVITEDTAL</option>
-                    </select>
-                    <div id="batch-error" class="error"></div>
-                  </div>
-                </div>
-              </div>
 
               <div class="row justify-content-end">
                 <div class="col-sm-10">

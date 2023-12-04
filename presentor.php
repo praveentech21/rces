@@ -117,7 +117,7 @@ $participants = mysqli_query($conn, "SELECT * FROM `presented`");
             var link = document.createElement("a");
 
             // Set the href attribute to the file URL
-            link.href = "http://localhost/rces/certificate/tmp/" + pid + ".png";
+            link.href = "http://localhost/rces/certificate/tmpp/" + pid + ".png";
 
             // Set the download attribute to specify the filename
             link.download = pid + ".png";
@@ -125,7 +125,7 @@ $participants = mysqli_query($conn, "SELECT * FROM `presented`");
             // Trigger a click event on the anchor element
             link.click();
 
-            window.open("http://localhost/rces/certificate/tmp/" + pid + ".png" , "_blank");
+            window.open("http://localhost/rces/certificate/tmpp/" + pid + ".png" , "_blank");
 
           },
           error: function() {
